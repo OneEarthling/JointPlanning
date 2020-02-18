@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,9 +17,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class JointPlanningFragment extends Fragment {
 private RecyclerView mTasksRecyclerView;
-//private TasksAdapter mAdapter;
+private TaskAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,65 @@ private RecyclerView mTasksRecyclerView;
         mTasksRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));;
 
 
+        updateUI();
         return view;
+    }
+
+    private void updateUI() {
+        TaskLab taskLab = TaskLab.get(getActivity());
+        List <Task> tasks = taskLab.getTasks();
+        mAdapter = new TaskAdapter(tasks);
+        mTasksRecyclerView.setAdapter(mAdapter);
+
+    }
+
+    private class TaskHolder extends RecyclerView.ViewHolder{
+        private TextView mTextTask;
+        private TextView mEstimate;
+        private TextView mPriority;
+        private Task mTask;
+
+        public TaskHolder(LayoutInflater inflater, ViewGroup parent) {
+               super(inflater.inflate(R.layout.list_item_wpriority, parent, false));
+
+               mTextTask = itemView.findViewById(R.id.task_text);
+               mEstimate = itemView.findViewById(R.id.task_estimate);
+               mPriority = itemView.findViewById(R.id.task_priority);
+        }
+
+        public void bind(Task task){
+            mTask = task;
+            mTextTask.setText(task.getTextTask());
+            mEstimate.setText(String.valueOf(task.getEstimate()));
+            mPriority.setText(String.valueOf(task.getPriority()));
+
+        }
+    }
+
+    private class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
+        private List <Task> mTasks;
+
+        public TaskAdapter(List <Task> tasks){
+            mTasks = tasks;
+        }
+
+        @Override
+        public TaskHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            return new TaskHolder(layoutInflater, parent);
+        }
+
+        @Override
+        public void onBindViewHolder(TaskHolder holder, int position) {
+            Task task = mTasks.get(position);
+            holder.bind(task);
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return mTasks.size();
+        }
     }
 
     @Override
