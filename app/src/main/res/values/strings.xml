@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">JointPlanning</string>
+    <string name="ready">Готов</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Выйти</string>
+    <string name="info">Инфо</string>
+    <string name="about_text">Данная программа предназначена для
+    ведения совместного планирования</string>
+    <string name="nickname">Никнейм: </string>
+    <string name="enter_nickname">Введите ваш никнейм</string>
+    <string name="theme">Тема:</string>
+    <string name="shirtcard">Рубашка карты:</string>
+</resources>
