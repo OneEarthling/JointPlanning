@@ -45,18 +45,23 @@ private RecyclerView mTasksRecyclerView;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()){
             case R.id.ready:
                 item.setChecked(true);
+                intent = ReadyActivity.newIntent(getActivity());
+                startActivity(intent);
                 return true;
             case R.id.settings:
-                Intent i = SettingsActivity.newIntent(getActivity());
-                startActivity(i);
+                intent = SettingsActivity.newIntent(getActivity());
+                startActivity(intent);
                 return true;
             case R.id.exit:
+                getActivity().finish();
+                System.exit(0);
                 return true;
             case R.id.info:
-                Intent intent = new Intent(getContext(), InfoActivity.class);
+                intent = new Intent(getContext(), InfoActivity.class);
                 startActivity(intent);
                 return true;
             default:

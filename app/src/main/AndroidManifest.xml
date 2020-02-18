@@ -20,6 +20,8 @@
             android:parentActivityName=".JointPlanningActivity"/>
         <activity android:name=".SettingsActivity"
             android:parentActivityName=".JointPlanningActivity"/>
+        <activity android:name=".ReadyActivity"
+            android:parentActivityName=".JointPlanningActivity"/>
     </application>
 
 </manifest>
