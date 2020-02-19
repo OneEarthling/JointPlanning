@@ -9,19 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".JointPlanningActivity">
+        <activity android:name=".TaskListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TaskActivity"
+            android:parentActivityName=".TaskListActivity"/>
+
         <activity android:name=".InfoActivity"
-            android:parentActivityName=".JointPlanningActivity"/>
+            android:parentActivityName=".TaskListActivity"/>
         <activity android:name=".SettingsActivity"
-            android:parentActivityName=".JointPlanningActivity"/>
+            android:parentActivityName=".TaskListActivity"/>
         <activity android:name=".ReadyActivity"
-            android:parentActivityName=".JointPlanningActivity"/>
+            android:parentActivityName=".TaskListActivity"/>
+
+
     </application>
 
 </manifest>

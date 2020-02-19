@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class JointPlanningFragment extends Fragment {
+public class TaskListFragment extends Fragment {
 private RecyclerView mTasksRecyclerView;
 private TaskAdapter mAdapter;
 
@@ -48,7 +48,7 @@ private TaskAdapter mAdapter;
 
     }
 
-    private class TaskHolder extends RecyclerView.ViewHolder{
+    private class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mTextTask;
         private TextView mEstimate;
         private TextView mPriority;
@@ -56,7 +56,7 @@ private TaskAdapter mAdapter;
 
         public TaskHolder(LayoutInflater inflater, ViewGroup parent) {
                super(inflater.inflate(R.layout.list_item_wpriority, parent, false));
-
+               itemView.setOnClickListener(this);
                mTextTask = itemView.findViewById(R.id.task_text);
                mEstimate = itemView.findViewById(R.id.task_estimate);
                mPriority = itemView.findViewById(R.id.task_priority);
@@ -68,6 +68,12 @@ private TaskAdapter mAdapter;
             mEstimate.setText(String.valueOf(task.getEstimate()));
             mPriority.setText(String.valueOf(task.getPriority()));
 
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = TaskActivity.newIntent(getActivity(), mTask.getId());
+            startActivity(intent);
         }
     }
 

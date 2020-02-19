@@ -12,10 +12,17 @@
     <string name="shirtcard">Рубашка карты:</string>
     <string name="im_ready">Я готов!</string>
     <string name="show_similar">Показать похожие задачи</string>
-    <string name="priority">Приоритет</string>
+    <string name="priority">Приоритет: </string>
     <string name="time_left">Осталось времени: </string>
     <string name="result">Результат: </string>
     <string name="min_estimate">Минимальная  оценка:</string>
     <string name="max_estimate">Максимальная оценка:</string>
     <string name="estimate">Оценка:</string>
+    <string name="detailed_description_task"> Требуется разработать приложение для оценки и планирования задач на команду.РолиИгроки – сотрудники, выполняющие оценку заданий.Ведущий – сотрудник, руководящий процессом оценки.Игрок должен
+        видеть и оценивать текущее задание, которое рассматривает руководитель;
+        просматривать похожие задания для точности оценки;
+        видеть итоговый результат оценки.
+        Ведущий должен: видеть текущие оцениваемые задачи;
+         видеть текущую скорость команды. </string>
+    <string name="task_description">Описание задачи</string>
 </resources>

@@ -8,6 +8,9 @@ public class Task {
     private int mPriority;
     private int mEstimate;
 
+    public Task(){
+        mId = UUID.randomUUID();
+    }
     public String getTextTask() {
         return mTextTask;
     }
