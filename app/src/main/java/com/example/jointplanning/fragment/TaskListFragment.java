@@ -18,10 +18,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.jointplanning.InfoActivity;
+import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
-import com.example.jointplanning.ReadyActivity;
-import com.example.jointplanning.SettingsActivity;
+import com.example.jointplanning.activity.ReadyActivity;
+import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
 
 public class TaskListFragment extends Fragment {

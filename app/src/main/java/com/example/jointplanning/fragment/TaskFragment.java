@@ -1,4 +1,4 @@
-package com.example.jointplanning;
+package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.jointplanning.R;
+import com.example.jointplanning.TaskLab;
 import com.example.jointplanning.model.Task;
 
 import java.util.UUID;
@@ -20,9 +22,9 @@ public class TaskFragment extends Fragment {
     private TextView mPriority;
     private Task mTask;
 
-    public static TaskFragment newInstance(UUID taskId) {
+    public static TaskFragment newInstance(long taskId) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_TASK_ID, taskId);
+        args.putLong(ARG_TASK_ID, taskId);
 
         TaskFragment fragment = new TaskFragment();
         fragment.setArguments(args);

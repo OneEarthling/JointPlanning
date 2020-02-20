@@ -1,4 +1,4 @@
-package com.example.jointplanning;
+package com.example.jointplanning.activity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.jointplanning.R;
 
 public class InfoActivity extends AppCompatActivity {
 

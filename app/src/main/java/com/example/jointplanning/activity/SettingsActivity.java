@@ -1,11 +1,11 @@
-package com.example.jointplanning;
+package com.example.jointplanning.activity;
 
 import android.content.Context;
 import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.jointplanning.activity.SingleFragmentActivity;
+import com.example.jointplanning.fragment.SettingsFragment;
 
 
 public class SettingsActivity extends SingleFragmentActivity {

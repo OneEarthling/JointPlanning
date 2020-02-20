@@ -1,4 +1,4 @@
-package com.example.jointplanning;
+package com.example.jointplanning.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.jointplanning.activity.SingleFragmentActivity;
+import com.example.jointplanning.fragment.TaskFragment;
 
 public class TaskActivity extends SingleFragmentActivity {
     public static  final String EXTRA_TASK_ID = "com.example.jointplanning.task_id";
@@ -20,7 +20,7 @@ public class TaskActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        UUID taskId = (UUID) getIntent().getSerializableExtra(EXTRA_TASK_ID);
+        long taskId = getIntent().getLongExtra(EXTRA_TASK_ID, 0);
         return TaskFragment.newInstance(taskId);
     }
 }

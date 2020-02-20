@@ -1,4 +1,4 @@
-package com.example.jointplanning;
+package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class ReadyEstimateFragment extends Fragment {
+import com.example.jointplanning.R;
+
+public class ReadyResultFragment extends Fragment {
+
     public static Fragment newInstance() {
         Bundle args = new Bundle();
-        ReadyEstimateFragment fragment = new ReadyEstimateFragment();
+        ReadyResultFragment fragment = new ReadyResultFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -22,7 +25,8 @@ public class ReadyEstimateFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ready_estimate, container, false);
+        View view = inflater.inflate(R.layout.fragment_ready_result, container, false);
+
         return view;
     }
 }

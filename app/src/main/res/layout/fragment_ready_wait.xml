@@ -2,5 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="60dp"/>
+    <!--    android:indeterminateDrawable="@drawable/progress_ring"-->
+    <TextView
+        android:id="@+id/plsWait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/please_wait"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textSize="26sp"/>
 </LinearLayout>

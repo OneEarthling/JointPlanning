@@ -16,16 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TaskActivity"
+        <activity android:name=".activity.TaskActivity"
             android:parentActivityName=".activity.MainActivity"/>
 
-        <activity android:name=".InfoActivity"
+        <activity android:name=".activity.InfoActivity"
             android:parentActivityName=".activity.MainActivity"/>
 
-        <activity android:name=".SettingsActivity"
+        <activity android:name=".activity.SettingsActivity"
             android:parentActivityName=".activity.MainActivity"/>
 
-        <activity android:name=".ReadyActivity"
+        <activity android:name=".activity.ReadyActivity"
             android:parentActivityName=".activity.MainActivity"/>
 
 

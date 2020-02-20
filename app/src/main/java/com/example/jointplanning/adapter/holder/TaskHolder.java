@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.R;
 import com.example.jointplanning.model.Task;
-import com.example.jointplanning.TaskActivity;
+import com.example.jointplanning.activity.TaskActivity;
 
 public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     private Context mContext;

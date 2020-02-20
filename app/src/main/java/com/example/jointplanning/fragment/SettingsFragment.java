@@ -1,4 +1,4 @@
-package com.example.jointplanning;
+package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.jointplanning.R;
 
 public class SettingsFragment extends Fragment {
     private EditText mNickname;
