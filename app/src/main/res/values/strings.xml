@@ -25,4 +25,7 @@
         Ведущий должен: видеть текущие оцениваемые задачи;
          видеть текущую скорость команды. </string>
     <string name="task_description">Описание задачи</string>
+    <string name="are_you_ready">Вы готовы?</string>
+    <string name="yes">Да, я готов!</string>
+    <string name="no">Нет</string>
 </resources>
