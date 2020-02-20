@@ -3,8 +3,9 @@ package com.example.jointplanning;
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.example.jointplanning.activity.SingleFragmentActivity;
 
 
 public class SettingsActivity extends SingleFragmentActivity {

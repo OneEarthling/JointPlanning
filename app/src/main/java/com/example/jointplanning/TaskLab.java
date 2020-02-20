@@ -1,32 +1,28 @@
 package com.example.jointplanning;
 
-import android.content.Context;
+import com.example.jointplanning.model.Task;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 public class TaskLab {
     private static TaskLab sTaskLab;
 
     private List<Task> mTasks;
 
-    public static TaskLab get(Context context) {
+    public static TaskLab get() {
         if (sTaskLab == null) {
-            sTaskLab = new TaskLab(context);
+            sTaskLab = new TaskLab();
         }
 
         return sTaskLab;
     }
 
-    private TaskLab(Context context) {
+    private TaskLab() {
         mTasks = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            Task task = new Task();
-            task.setTextTask("Задача #" + i);
-            task.setPriority(i % 2 == 0? 1:4);
-            task.setEstimate(i % 2 == 0? 5:13);
-
+            Task task = Task.getInstance(new Date().getTime(), "Задача #" + i, i % 2 == 0? 1:4, i % 2 == 0? 5:13);
             mTasks.add(task);
         }
     }
@@ -35,9 +31,9 @@ public class TaskLab {
         return mTasks;
     }
 
-    public Task getTask(UUID id) {
+    public Task getTask(long id) {
         for (Task task : mTasks) {
-            if (task.getId().equals(id)) {
+            if (task.getId() == id) {
                 return task;
             }
         }

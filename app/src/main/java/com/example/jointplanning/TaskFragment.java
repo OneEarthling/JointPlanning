@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.jointplanning.model.Task;
 
 import java.util.UUID;
 
@@ -32,15 +32,15 @@ public class TaskFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID taskId = (UUID) getArguments().getSerializable(ARG_TASK_ID);
-        mTask = TaskLab.get(getActivity()).getTask(taskId);
+        long taskId = getArguments().getLong(ARG_TASK_ID);
+        mTask = TaskLab.get().getTask(taskId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         mTextTask = view.findViewById(R.id.task_text);
-        mTextTask.setText(mTask.getTextTask());
+        mTextTask.setText(mTask.getText());
 
         mEstimate = view.findViewById(R.id.task_estimate);
         mEstimate.setText(String.valueOf(mTask.getEstimate()));

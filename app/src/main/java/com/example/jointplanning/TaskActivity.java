@@ -6,10 +6,12 @@ import java.util.UUID;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.jointplanning.activity.SingleFragmentActivity;
+
 public class TaskActivity extends SingleFragmentActivity {
     public static  final String EXTRA_TASK_ID = "com.example.jointplanning.task_id";
 
-    public static Intent newIntent(Context packageContext, UUID taskId){
+    public static Intent newIntent(Context packageContext, long taskId){
         Intent intent = new Intent(packageContext, TaskActivity.class);
         intent.putExtra(EXTRA_TASK_ID, taskId);
 

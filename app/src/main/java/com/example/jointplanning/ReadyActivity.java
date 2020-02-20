@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.jointplanning.activity.SingleFragmentActivity;
+
 public class ReadyActivity extends SingleFragmentActivity {
 
     public static Intent newIntent(Context packageContext){
