@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jointplanning.R;
 
@@ -52,6 +53,15 @@ public class ReadyEstimateFragment extends Fragment {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
                 mUserEstimate.setText(selectedItem);
+            }
+        });
+
+        mUserEstimate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, ReadyResultFragment.newInstance());
+                transaction.commit();
             }
         });
         return view;

@@ -17,9 +17,9 @@ public class ReadyActivity extends SingleFragmentActivity {
     }
     @Override
     protected Fragment createFragment() {
-//        return ReadyWaitFragment.newInstance();
+        return ReadyWaitFragment.newInstance();
 //        return ReadyTaskFragment.newInstance();
-        return ReadyEstimateFragment.newInstance();
+//        return ReadyEstimateFragment.newInstance();
 //        return ReadyResultFragment.newInstance();
     }
 }
