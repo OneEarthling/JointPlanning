@@ -1,3 +1,5 @@
+import java.text.DecimalFormat
+
 apply plugin: 'com.android.application'
 
 android {
@@ -8,8 +10,9 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName getVersion()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", getVersion())
     }
     buildTypes {
         release {
@@ -23,8 +26,35 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
+    implementation 'com.google.code.gson:gson:2.8.6'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
+}
+
+static def startOfDay() {
+    def now = new Date().getTime()
+    def start = Date.parse("yyyy-MM-dd hh:mm:ss", "2020-02-01 0:00:00").getTime()
+
+    return new DecimalFormat("#").format(Math.floor(Math.abs(now - start) / (1000 * 3600 * 24)))
+}
+
+static def minuteOfDay() {
+    def now = new Date()
+    return (now.format("HH").toInteger() * 60) + now.format("mm").toInteger()
+}
+
+static def getRelease() {
+    /**
+     * 0 – альфа (прототип);
+     * 1 – бета (бета);
+     * 2 – выпуск-кандидат (передан на тестирование заказчику);
+     * 3 – публичный выпуск (окончательно передан заказчику).
+     */
+    return 0
+}
+
+static def getVersion() {
+    return "4." + startOfDay() + "." + getRelease() + "." + minuteOfDay()
 }
