@@ -8,9 +8,12 @@ import com.example.jointplanning.fragment.TaskListFragment;
 
 public class MainActivity extends SingleFragmentActivity {
 
+    public MainActivity() {
+        super(true);
+    }
+
     @Override
     protected Fragment createFragment() {
-        return new AuthorizationFragment();
-        //return new TaskListFragment();
+        return AuthorizationFragment.newInstance();
     }
 }

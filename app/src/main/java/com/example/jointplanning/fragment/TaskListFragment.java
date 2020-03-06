@@ -18,16 +18,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jointplanning.App;
 import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
+import com.example.jointplanning.activity.MainActivity;
 import com.example.jointplanning.activity.ReadyActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
+import com.example.jointplanning.authorization.Authorization;
 
 public class TaskListFragment extends Fragment {
 
     private RecyclerView mTasksRecyclerView;
     private TaskAdapter mAdapter;
+
+    public static TaskListFragment newInstance() {
+        return new TaskListFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -94,8 +101,26 @@ public class TaskListFragment extends Fragment {
                 startActivity(intent);
                 return true;
             case R.id.exit:
-                getActivity().finish();
-                System.exit(0);
+                android.app.AlertDialog.Builder adb = new android.app.AlertDialog.Builder(getContext());
+                adb.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ((App) getActivity().getApplication()).unAuthorized(true);
+
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                });
+                adb.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                android.app.AlertDialog alert = adb.create();
+                alert.setTitle(getResources().getString(R.string.confirmExit));
+                alert.show();
                 return true;
             case R.id.info:
                 intent = new Intent(getContext(), InfoActivity.class);

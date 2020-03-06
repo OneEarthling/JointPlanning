@@ -1,6 +1,8 @@
 package com.example.jointplanning.rpc;
 
 import com.example.jointplanning.Constants;
+import com.example.jointplanning.authorization.Authorization;
+import com.example.jointplanning.authorization.BasicCredentials;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +22,11 @@ public class RequestManagerTest {
     }
 
     @Test
-    public void rpc() {
-        //RequestManager.rpc(Constants.BASE_URL, )
+    public void rpc() throws IOException {
+        BasicCredentials basicCredentials = new BasicCredentials("demo", "000");
+        QueryData queryData = new QueryData();
+        queryData.limit = 2;
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cs_tag", "Query", queryData);
+        assertTrue(rpcResults[0].isSuccess());
     }
 }

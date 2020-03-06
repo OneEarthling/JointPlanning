@@ -88,7 +88,7 @@ public class AuthorizationRequestUtil {
                 message = "Пользователь авторизован.";
                 token = jsonObject.getString("token");
                 userId = jsonObject.getJSONObject("user").getInt("userId");
-                claims = jsonObject.getJSONObject("user").getString("claims");
+                claims = jsonObject.getJSONObject("user").getString("c_claims");
             }
         }catch (Exception e){
             status = Meta.ERROR_SERVER;

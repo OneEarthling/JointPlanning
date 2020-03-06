@@ -14,5 +14,6 @@
     <color name="button_color">#fadadd</color>
     <color name="button_pressed_color">#d3a7b1</color>
     <color name="button_pressed_border_color">#cd5c5c</color>
+    <color name="over_due">#EB5757</color>
 </resources>
 

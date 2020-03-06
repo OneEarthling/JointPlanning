@@ -37,4 +37,13 @@
     <string name="input_password">введите пароль</string>
     <string name="password">Пароль:</string>
     <string name="sign_in">Войти</string>
+    <string name="versionShort">Версия: %s</string>
+    <string name="serverNotAvailable">Сервер не доступен</string>
+    <string name="versionToast">Версия приложения %s.%s от %s - %s.</string>
+    <string name="alphaText">альфа версия</string>
+    <string name="betaText">бета версия</string>
+    <string name="releaseCandidateText">выпуск-кандидат</string>
+    <string name="productionText">публичный выпуск</string>
+    <string name="confirmExit">Вы уверены что хотите выйти?</string>
+    <string name="signOutMessage">Нажмите повторно для выхода из приложения.</string>
 </resources>
