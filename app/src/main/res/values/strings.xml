@@ -30,4 +30,11 @@
     <string name="no">Нет</string>
     <string name="please_wait">Пожалуйста, подождите</string>
     <string name="your_estimate">Ваша оценка:</string>
+    <string name="your_nickname">Ваш Никнейм:</string>
+    <string name="authorization">Авторизация</string>
+    <string name="user">Пользователь:</string>
+    <string name="input_ur_nickname">введите никнейм</string>
+    <string name="input_password">введите пароль</string>
+    <string name="password">Пароль:</string>
+    <string name="sign_in">Войти</string>
 </resources>

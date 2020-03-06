@@ -1,5 +1,6 @@
 package com.example.jointplanning.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jointplanning.R;
+import com.example.jointplanning.activity.MainActivity;
 
 public class ReadyTaskFragment extends Fragment {
 
@@ -36,6 +38,17 @@ public class ReadyTaskFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, ReadyEstimateFragment.newInstance());
                 transaction.commit();
+            }
+        });
+
+        Button mSimilarTasks = view.findViewById(R.id.similar_tasks);
+        mSimilarTasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // открытие похожих задач
+                // изменить!
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             }
         });
         return view;
