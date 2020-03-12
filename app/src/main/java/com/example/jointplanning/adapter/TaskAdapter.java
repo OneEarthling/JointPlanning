@@ -1,9 +1,12 @@
 package com.example.jointplanning.adapter;
 
 import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +26,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
 //    private List<Task> mTasks;
     private List<TaskJson> mTasks;
 
-    public TaskAdapter(Context context) throws IOException {
+    public TaskAdapter(Context context) {
         mContext = context;
 //        TaskLab taskLab = TaskLab.get();
 //        mTasks = taskLab.getTasks();
-        TaskJsonLab taskLab = TaskJsonLab.get();
-        mTasks = taskLab.getTasks();
+        //new getTasksDB().execute();
     }
 
     @Override
@@ -50,4 +52,5 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     public int getItemCount() {
         return mTasks.size();
     }
+
 }

@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.App;
+import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.MainActivity;
@@ -26,13 +29,17 @@ import com.example.jointplanning.activity.ReadyActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
 import com.example.jointplanning.authorization.Authorization;
+import com.example.jointplanning.model.TaskJson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskListFragment extends Fragment {
 
     private RecyclerView mTasksRecyclerView;
     private TaskAdapter mAdapter;
+    private List<TaskJson> mTasks = new ArrayList<>();
 
     public static TaskListFragment newInstance() {
         return new TaskListFragment();
@@ -51,17 +58,14 @@ public class TaskListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        new getTasksDB().execute();
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        try {
-            mAdapter = new TaskAdapter(getContext());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mAdapter = new TaskAdapter(getContext());
         mTasksRecyclerView.setAdapter(mAdapter);
     }
 
@@ -134,6 +138,33 @@ public class TaskListFragment extends Fragment {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private class getTasksDB extends AsyncTask<Void, Void, List<TaskJson>> {
+
+        @Override
+        protected List<TaskJson> doInBackground(Void... params) {
+
+            TaskJsonLab taskLab = null;
+            try {
+                taskLab = TaskJsonLab.get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mTasks = taskLab.getTasks();
+            return mTasks;
+        }
+
+        @Override
+        protected void onPostExecute(List<TaskJson> items) {
+            Log.i("SIZE", "size: " + mTasks.size());
+            if ( mTasks.size() == 0) {
+                mTasks.addAll(items);
+            } else {
+                mTasks.addAll(items);
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 }
