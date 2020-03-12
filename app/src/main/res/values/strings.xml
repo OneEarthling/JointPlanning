@@ -46,4 +46,7 @@
     <string name="productionText">публичный выпуск</string>
     <string name="confirmExit">Вы уверены что хотите выйти?</string>
     <string name="signOutMessage">Нажмите повторно для выхода из приложения.</string>
+    <string name="task_was_created">Задача создана:</string>
+    <string name="task_was_estimated">Задача оценена:</string>
+    <string name="author">Автор:</string>
 </resources>

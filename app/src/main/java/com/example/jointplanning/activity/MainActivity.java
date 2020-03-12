@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.jointplanning.activity.SingleFragmentActivity;
+import com.example.jointplanning.authorization.Authorization;
 import com.example.jointplanning.fragment.AuthorizationFragment;
 import com.example.jointplanning.fragment.TaskListFragment;
 
@@ -31,6 +32,8 @@ public class MainActivity extends SingleFragmentActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
             // Permission is not granted
+            //Authorization.getInstance().getUser().getCredentials().login;
+
         }
         else {
             Toast

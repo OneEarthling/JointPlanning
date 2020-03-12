@@ -19,6 +19,25 @@
         android:text="@string/detailed_description_task"/>
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:paddingEnd="8dp"
+            android:text="@string/author" />
+        <TextView
+            android:id="@+id/task_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Я"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -52,6 +71,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="13"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:paddingRight="8dp"
+            android:text="@string/task_was_created" />
+        <TextView
+            android:id="@+id/task_created_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12.03.2020"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:paddingRight="8dp"
+            android:text="@string/task_was_estimated" />
+        <TextView
+            android:id="@+id/task_estimated_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="13.03.2020"/>
     </LinearLayout>
 
 </LinearLayout>
