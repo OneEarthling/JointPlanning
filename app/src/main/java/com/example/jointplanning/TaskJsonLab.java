@@ -36,7 +36,8 @@ public class TaskJsonLab {
         QueryData queryData = new QueryData();
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_userstory", "Query", queryData);
         JSONObject[] records = rpcResults[0].result.records;
-        mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<TaskJson>>(){}.getType());
+
+//        mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<TaskJson>>(){}.getType());
     }
 
     public List<TaskJson> getTasks() {

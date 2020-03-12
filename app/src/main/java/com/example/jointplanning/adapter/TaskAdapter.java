@@ -8,20 +8,26 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.R;
+import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.model.Task;
 import com.example.jointplanning.TaskLab;
 import com.example.jointplanning.adapter.holder.TaskHolder;
+import com.example.jointplanning.model.TaskJson;
 
+import java.io.IOException;
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     private Context mContext;
 
-    private List<Task> mTasks;
+//    private List<Task> mTasks;
+    private List<TaskJson> mTasks;
 
-    public TaskAdapter(Context context) {
+    public TaskAdapter(Context context) throws IOException {
         mContext = context;
-        TaskLab taskLab = TaskLab.get();
+//        TaskLab taskLab = TaskLab.get();
+//        mTasks = taskLab.getTasks();
+        TaskJsonLab taskLab = TaskJsonLab.get();
         mTasks = taskLab.getTasks();
     }
 
@@ -35,7 +41,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
 
     @Override
     public void onBindViewHolder(TaskHolder holder, int position) {
-        Task task = mTasks.get(position);
+//        Task task = mTasks.get(position);
+        TaskJson task = mTasks.get(position);
         holder.bind(task);
     }
 

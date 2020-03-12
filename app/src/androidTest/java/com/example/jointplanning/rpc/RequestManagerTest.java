@@ -50,7 +50,8 @@ public class RequestManagerTest {
         QueryData queryData = new QueryData();
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_userstory", "Query", queryData);
         JSONObject[] records = rpcResults[0].result.records;
-        // Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
+        Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
+        Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
         Type taskItemType = new TypeToken<ArrayList<TaskJson>>(){}.getType();
         List<TaskJson> list = gson.fromJson(Arrays.toString(records), taskItemType);
 

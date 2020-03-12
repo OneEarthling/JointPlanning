@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jointplanning.R;
 import com.example.jointplanning.model.Task;
 import com.example.jointplanning.activity.TaskActivity;
+import com.example.jointplanning.model.TaskJson;
 
 public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     private Context mContext;
@@ -19,7 +20,7 @@ public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickL
     private TextView mEstimate;
     private TextView mPriority;
 
-    private Task mTask;
+    private TaskJson mTask;
 
     public TaskHolder(Context context, @NonNull View itemView) {
         super(itemView);
@@ -32,11 +33,14 @@ public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickL
         itemView.setOnClickListener(this);
     }
 
-    public void bind(Task task) {
+    public void bind(TaskJson task) {
         mTask = task;
-        mTextTask.setText(task.getText());
-        mEstimate.setText(String.valueOf(task.getEstimate()));
-        mPriority.setText(String.valueOf(task.getPriority()));
+//        mTextTask.setText(task.getText());
+//        mEstimate.setText(String.valueOf(task.getEstimate()));
+//        mPriority.setText(String.valueOf(task.getPriority()));
+        mTextTask.setText(task.getCDescription());
+        mEstimate.setText(String.valueOf(task.getNSize()));
+        mPriority.setText(String.valueOf(task.getNPriority()));
     }
 
     @Override

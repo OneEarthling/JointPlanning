@@ -27,6 +27,8 @@ import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
 import com.example.jointplanning.authorization.Authorization;
 
+import java.io.IOException;
+
 public class TaskListFragment extends Fragment {
 
     private RecyclerView mTasksRecyclerView;
@@ -55,7 +57,11 @@ public class TaskListFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        mAdapter = new TaskAdapter(getContext());
+        try {
+            mAdapter = new TaskAdapter(getContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         mTasksRecyclerView.setAdapter(mAdapter);
     }
 
