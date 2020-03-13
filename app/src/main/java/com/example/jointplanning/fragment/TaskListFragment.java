@@ -51,7 +51,15 @@ public class TaskListFragment extends Fragment {
         mTasksRecyclerView = view.findViewById(R.id.tasks_recycler_view);
         mTasksRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        setupAdapter();
         return view;
+    }
+
+    private void setupAdapter() {
+        if (isAdded()){
+            mAdapter = new TaskAdapter(getContext(), mTasks);
+            mTasksRecyclerView.setAdapter(mAdapter);
+        }
     }
 
     @Override
@@ -64,9 +72,6 @@ public class TaskListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
-        mAdapter = new TaskAdapter(getContext());
-        mTasksRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -141,6 +146,8 @@ public class TaskListFragment extends Fragment {
         }
     }
 
+
+
     private class getTasksDB extends AsyncTask<Void, Void, List<TaskJson>> {
 
         @Override
@@ -158,13 +165,8 @@ public class TaskListFragment extends Fragment {
 
         @Override
         protected void onPostExecute(List<TaskJson> items) {
-            Log.i("SIZE", "size: " + mTasks.size());
-            if ( mTasks.size() == 0) {
-                mTasks.addAll(items);
-            } else {
-                mTasks.addAll(items);
-                mAdapter.notifyDataSetChanged();
-            }
+            mTasks = items;
+            setupAdapter();
         }
     }
 }

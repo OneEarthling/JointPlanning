@@ -1,5 +1,7 @@
 package com.example.jointplanning;
 
+import android.util.Log;
+
 import com.example.jointplanning.authorization.BasicCredentials;
 import com.example.jointplanning.model.Task;
 import com.example.jointplanning.model.TaskJson;
@@ -36,8 +38,9 @@ public class TaskJsonLab {
         QueryData queryData = new QueryData();
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_userstory", "Query", queryData);
         JSONObject[] records = rpcResults[0].result.records;
-
-       mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<TaskJson>>(){}.getType());
+        Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
+        Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
+        mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<TaskJson>>(){}.getType());
     }
 
     public List<TaskJson> getTasks() {

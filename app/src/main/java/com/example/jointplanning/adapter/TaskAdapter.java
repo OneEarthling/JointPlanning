@@ -22,12 +22,12 @@ import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     private Context mContext;
-
 //    private List<Task> mTasks;
     private List<TaskJson> mTasks;
 
-    public TaskAdapter(Context context) {
+    public TaskAdapter(Context context, List<TaskJson> tasks) {
         mContext = context;
+        mTasks = tasks;
 //        TaskLab taskLab = TaskLab.get();
 //        mTasks = taskLab.getTasks();
         //new getTasksDB().execute();

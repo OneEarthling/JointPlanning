@@ -9,9 +9,12 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.jointplanning.R;
+import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.TaskLab;
 import com.example.jointplanning.model.Task;
 import com.example.jointplanning.model.TaskJson;
+
+import java.io.IOException;
 
 
 public class TaskJsonFragment extends Fragment {
@@ -38,8 +41,11 @@ public class TaskJsonFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         long taskId = getArguments().getLong(ARG_TASK_ID);
-        // получение задачи!!!
-        //mTask = TaskLab.get().getTask(taskId);
+        try {
+            mTask = TaskJsonLab.get().getTask(taskId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
