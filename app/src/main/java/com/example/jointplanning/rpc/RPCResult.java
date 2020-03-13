@@ -1,8 +1,12 @@
 package com.example.jointplanning.rpc;
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * Результат RPC вызова
@@ -151,5 +155,17 @@ public class RPCResult {
      */
     public boolean isSuccess() {
         return meta.success;
+    }
+
+    public <T> void toObjectArray(List<T> input, Class<T> classOfT) {
+        if(isSuccess()) {
+            JSONObject[] jsonObject = result.records;
+
+            Gson gson = new Gson();
+            for(JSONObject object : jsonObject) {
+                String json = object.toString();
+                input.add(gson.fromJson(json, classOfT));
+            }
+        }
     }
 }

@@ -12,7 +12,10 @@ import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
 
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +43,12 @@ public class RequestManagerTest {
         QueryData queryData = new QueryData();
         queryData.limit = 2;
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cs_tag", "Query", queryData);
+        if(rpcResults.length > 0) {
+            List<Tag> tags = new ArrayList<>();
+            rpcResults[0].toObjectArray(tags, Tag.class);
+            assertTrue(tags.size() > 0);
+        }
+
         assertTrue(rpcResults[0].isSuccess());
     }
 
@@ -57,5 +66,48 @@ public class RequestManagerTest {
 
         //TaskJson taskJson = gson.fromJson(String.valueOf(rpcResults[0].result.records[0]), TaskJson.class);
         assertTrue(rpcResults[0].isSuccess());
+    }
+
+    private class Tag {
+
+        /**
+         * Идентификатор
+         */
+        public Long id;
+
+        /**
+         * Код
+         */
+        public long n_code;
+
+        /**
+         * Наименование
+         */
+        public String c_name;
+
+        /**
+         * Краткое наименование
+         */
+        public String c_short_name;
+
+        /**
+         * Константа
+         */
+        public String c_const;
+
+        /**
+         * отключено
+         */
+        public boolean b_disabled;
+
+        /**
+         * сортировка
+         */
+        public int n_order;
+
+        /**
+         * по умолчанию
+         */
+        public boolean b_default;
     }
 }
