@@ -9,18 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.R;
-import com.example.jointplanning.model.Task;
 import com.example.jointplanning.activity.TaskActivity;
-import com.example.jointplanning.model.TaskJson;
+import com.example.jointplanning.model.Task;
 
 public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     private Context mContext;
-
     private TextView mTextTask;
     private TextView mEstimate;
     private TextView mPriority;
 
-    private TaskJson mTask;
+    private Task mTask;
 
     public TaskHolder(Context context, @NonNull View itemView) {
         super(itemView);
@@ -33,14 +31,11 @@ public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickL
         itemView.setOnClickListener(this);
     }
 
-    public void bind(TaskJson task) {
+    public void bind(Task task) {
         mTask = task;
-//        mTextTask.setText(task.getText());
-//        mEstimate.setText(String.valueOf(task.getEstimate()));
-//        mPriority.setText(String.valueOf(task.getPriority()));
-        mTextTask.setText(task.getCDescription());
-        mEstimate.setText(String.valueOf(task.getNSize()));
-        mPriority.setText(String.valueOf(task.getNPriority()));
+        mTextTask.setText(task.getC_description());
+        mEstimate.setText(String.valueOf(task.getN_size()));
+        mPriority.setText(String.valueOf(task.getN_priority()));
     }
 
     @Override

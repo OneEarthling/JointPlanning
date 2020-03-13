@@ -1,10 +1,12 @@
 package com.example.jointplanning;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.jointplanning.authorization.BasicCredentials;
-import com.example.jointplanning.model.TaskJson;
+import com.example.jointplanning.model.Project;
+import com.example.jointplanning.model.Tag;
+import com.example.jointplanning.model.Task;
+import com.example.jointplanning.rpc.FilterItem;
 import com.example.jointplanning.rpc.QueryData;
 import com.example.jointplanning.rpc.RPCResult;
 import com.example.jointplanning.rpc.RequestManager;
@@ -16,6 +18,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DataManager {
     private Context mContext;
@@ -33,5 +36,59 @@ public class DataManager {
 
     public static void initialize(Context context, String token) {
         mDataManager = new DataManager(context, token);
+    }
+
+    public List<Task> getTasks() throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cd_userstory", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Task>>(){}.getType());
+    }
+
+    public Task getTask(int id) throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        FilterItem fi = new FilterItem("id","=", String.valueOf(id));
+        queryData.filter = new Object[]{fi};
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cd_userstory", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(String.valueOf(records[0]), Task.class);
+    }
+
+    public List<Tag> getTags() throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cs_tag", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Tag>>(){}.getType());
+    }
+
+    public Tag getTag(int id) throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        FilterItem fi = new FilterItem("id","=", String.valueOf(id));
+        queryData.filter = new Object[]{fi};
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cs_tag", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(String.valueOf(records[0]), Tag.class);
+    }
+
+    public List<Project> getProjects() throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cd_project", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Project>>(){}.getType());
+    }
+
+    public Project getProject(int id) throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        FilterItem fi = new FilterItem("id","=", String.valueOf(id));
+        queryData.filter = new Object[]{fi};
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cd_project", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        return gson.fromJson(String.valueOf(records[0]), Project.class);
     }
 }

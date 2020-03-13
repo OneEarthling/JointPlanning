@@ -3,21 +3,15 @@ package com.example.jointplanning.rpc;
 import android.util.Log;
 
 import com.example.jointplanning.Constants;
-import com.example.jointplanning.authorization.Authorization;
 import com.example.jointplanning.authorization.BasicCredentials;
-import com.example.jointplanning.model.TaskJson;
+import com.example.jointplanning.model.Project;
+import com.example.jointplanning.model.Tag;
+import com.example.jointplanning.model.Task;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-import com.google.gson.Gson;
-import com.google.gson.annotations.Expose;
 
-import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -61,53 +55,50 @@ public class RequestManagerTest {
         JSONObject[] records = rpcResults[0].result.records;
         Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
         Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
-        Type taskItemType = new TypeToken<ArrayList<TaskJson>>(){}.getType();
-        List<TaskJson> list = gson.fromJson(Arrays.toString(records), taskItemType);
-
-        //TaskJson taskJson = gson.fromJson(String.valueOf(rpcResults[0].result.records[0]), TaskJson.class);
+        Type taskItemType = new TypeToken<ArrayList<Task>>(){}.getType();
+        List<Task> list = gson.fromJson(Arrays.toString(records), taskItemType);
         assertTrue(rpcResults[0].isSuccess());
     }
 
-    private class Tag {
-
-        /**
-         * Идентификатор
-         */
-        public Long id;
-
-        /**
-         * Код
-         */
-        public long n_code;
-
-        /**
-         * Наименование
-         */
-        public String c_name;
-
-        /**
-         * Краткое наименование
-         */
-        public String c_short_name;
-
-        /**
-         * Константа
-         */
-        public String c_const;
-
-        /**
-         * отключено
-         */
-        public boolean b_disabled;
-
-        /**
-         * сортировка
-         */
-        public int n_order;
-
-        /**
-         * по умолчанию
-         */
-        public boolean b_default;
+    @Test
+    public void getTask() throws IOException {
+        Gson gson = new Gson();
+        BasicCredentials basicCredentials = new BasicCredentials("demo", "000");
+        QueryData queryData = new QueryData();
+        FilterItem fi = new FilterItem("id","=", "2" );
+        queryData.filter = new Object[]{fi};
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_userstory", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
+        Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
+        Task task = gson.fromJson(String.valueOf(rpcResults[0].result.records[0]), Task.class);
+        assertTrue(rpcResults[0].isSuccess());
     }
+
+    @Test
+    public void getTags() throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        BasicCredentials basicCredentials = new BasicCredentials("demo", "000");
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cs_tag", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
+        Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
+        List<Tag> tags = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Tag>>(){}.getType());
+        assertTrue(rpcResults[0].isSuccess());
+    }
+
+    @Test
+    public void getProjects() throws IOException {
+        Gson gson = new Gson();
+        QueryData queryData = new QueryData();
+        BasicCredentials basicCredentials = new BasicCredentials("demo", "000");
+        RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_project", "Query", queryData);
+        JSONObject[] records = rpcResults[0].result.records;
+        Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
+        Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
+        List<Project> projects = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Project>>(){}.getType());
+        assertTrue(rpcResults[0].isSuccess());
+    }
+
 }

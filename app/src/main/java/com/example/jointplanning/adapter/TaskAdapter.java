@@ -1,31 +1,23 @@
 package com.example.jointplanning.adapter;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.R;
-import com.example.jointplanning.TaskJsonLab;
-import com.example.jointplanning.model.Task;
-import com.example.jointplanning.TaskLab;
 import com.example.jointplanning.adapter.holder.TaskHolder;
-import com.example.jointplanning.model.TaskJson;
+import com.example.jointplanning.model.Task;
 
-import java.io.IOException;
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     private Context mContext;
-//    private List<Task> mTasks;
-    private List<TaskJson> mTasks;
+    private List<Task> mTasks;
 
-    public TaskAdapter(Context context, List<TaskJson> tasks) {
+    public TaskAdapter(Context context, List<Task> tasks) {
         mContext = context;
         mTasks = tasks;
 //        TaskLab taskLab = TaskLab.get();
@@ -43,8 +35,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
 
     @Override
     public void onBindViewHolder(TaskHolder holder, int position) {
-//        Task task = mTasks.get(position);
-        TaskJson task = mTasks.get(position);
+        Task task = mTasks.get(position);
         holder.bind(task);
     }
 
@@ -52,5 +43,4 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     public int getItemCount() {
         return mTasks.size();
     }
-
 }

@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.example.jointplanning.authorization.BasicCredentials;
 import com.example.jointplanning.model.Task;
-import com.example.jointplanning.model.TaskJson;
 import com.example.jointplanning.rpc.QueryData;
 import com.example.jointplanning.rpc.RPCResult;
 import com.example.jointplanning.rpc.RequestManager;
@@ -14,16 +13,14 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class TaskJsonLab {
     private static TaskJsonLab sTaskJsonLab;
 
-    private List<TaskJson> mTasks;
+    private List<Task> mTasks;
 
     public static TaskJsonLab get() throws IOException {
         if (sTaskJsonLab == null) {
@@ -40,15 +37,15 @@ public class TaskJsonLab {
         JSONObject[] records = rpcResults[0].result.records;
         Log.e("TAG", String.valueOf(rpcResults[0].result.records.length));
         Log.e("TAG", Arrays.toString(rpcResults[0].result.records));
-        mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<TaskJson>>(){}.getType());
+        mTasks = gson.fromJson(Arrays.toString(records),  new TypeToken<ArrayList<Task>>(){}.getType());
     }
 
-    public List<TaskJson> getTasks() {
+    public List<Task> getTasks() {
         return mTasks;
     }
 
-    public TaskJson getTask(long id) {
-        for (TaskJson task : mTasks) {
+    public Task getTask(long id) {
+        for (Task task : mTasks) {
             if (task.getId() == id) {
                 return task;
             }

@@ -7,7 +7,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,8 +27,7 @@ import com.example.jointplanning.activity.MainActivity;
 import com.example.jointplanning.activity.ReadyActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
-import com.example.jointplanning.authorization.Authorization;
-import com.example.jointplanning.model.TaskJson;
+import com.example.jointplanning.model.Task;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class TaskListFragment extends Fragment {
 
     private RecyclerView mTasksRecyclerView;
     private TaskAdapter mAdapter;
-    private List<TaskJson> mTasks = new ArrayList<>();
+    private List<Task> mTasks = new ArrayList<>();
 
     public static TaskListFragment newInstance() {
         return new TaskListFragment();
@@ -148,10 +146,10 @@ public class TaskListFragment extends Fragment {
 
 
 
-    private class getTasksDB extends AsyncTask<Void, Void, List<TaskJson>> {
+    private class getTasksDB extends AsyncTask<Void, Void, List<Task>> {
 
         @Override
-        protected List<TaskJson> doInBackground(Void... params) {
+        protected List<Task> doInBackground(Void... params) {
 
             TaskJsonLab taskLab = null;
             try {
@@ -164,7 +162,7 @@ public class TaskListFragment extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(List<TaskJson> items) {
+        protected void onPostExecute(List<Task> items) {
             mTasks = items;
             setupAdapter();
         }
