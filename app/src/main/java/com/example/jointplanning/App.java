@@ -18,7 +18,7 @@ public class App extends android.app.Application {
      * обработчик авторизации пользователя
      */
     public void onAuthorized() {
-
+        DataManager.initialize(this, Authorization.getInstance().getUser().getCredentials().getToken());
     }
 
     /**
