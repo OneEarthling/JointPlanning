@@ -20,7 +20,6 @@ public class TaskActivity extends SingleFragmentActivity {
     @Override
     protected Fragment createFragment() {
         long taskId = getIntent().getLongExtra(EXTRA_TASK_ID, 0);
-//        return TaskFragment.newInstance(taskId);
         return TaskFragment.newInstance(taskId);
     }
 }

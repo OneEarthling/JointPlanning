@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.App;
+import com.example.jointplanning.DataManager;
 import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
@@ -150,15 +151,20 @@ public class TaskListFragment extends Fragment {
 
         @Override
         protected List<Task> doInBackground(Void... params) {
-
-            TaskJsonLab taskLab = null;
             try {
-                taskLab = TaskJsonLab.get();
+                return DataManager.getInstance().getTasks();
             } catch (IOException e) {
                 e.printStackTrace();
+                return null;
             }
-            mTasks = taskLab.getTasks();
-            return mTasks;
+//            TaskJsonLab taskLab = null;
+//            try {
+//                taskLab = TaskJsonLab.get();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            mTasks = taskLab.getTasks();
+//            return mTasks;
         }
 
         @Override

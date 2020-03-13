@@ -65,7 +65,7 @@ public class RequestManagerTest {
         Gson gson = new Gson();
         BasicCredentials basicCredentials = new BasicCredentials("demo", "000");
         QueryData queryData = new QueryData();
-        FilterItem fi = new FilterItem("id","=", "2" );
+        FilterItem fi = new FilterItem("id","=", String.valueOf(2) );
         queryData.filter = new Object[]{fi};
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, basicCredentials.getToken(), "cd_userstory", "Query", queryData);
         JSONObject[] records = rpcResults[0].result.records;

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.jointplanning.DataManager;
 import com.example.jointplanning.R;
 import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.model.Task;
@@ -40,7 +41,9 @@ public class TaskFragment extends Fragment {
         super.onCreate(savedInstanceState);
         long taskId = getArguments().getLong(ARG_TASK_ID);
         try {
-            mTask = TaskJsonLab.get().getTask(taskId);
+            //mTask = TaskJsonLab.get().getTask(taskId);
+            // check!!!
+            mTask = DataManager.getInstance().getTask(taskId);
         } catch (IOException e) {
             e.printStackTrace();
         }

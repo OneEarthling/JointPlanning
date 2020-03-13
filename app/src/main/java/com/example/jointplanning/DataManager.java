@@ -49,10 +49,10 @@ public class DataManager {
         return null;
     }
 
-    public Task getTask(int id) throws IOException {
+    public Task getTask(long id) throws IOException {
         Gson gson = new Gson();
         QueryData queryData = new QueryData();
-        FilterItem fi = new FilterItem("id","=", String.valueOf(id));
+        FilterItem fi = new FilterItem("id","=", String.valueOf(id) );
         queryData.filter = new Object[]{fi};
         RPCResult[] rpcResults = RequestManager.rpc(Constants.BASE_URL, mToken, "cd_userstory", "Query", queryData);
         if(rpcResults[0].isSuccess() && rpcResults[0].result.records.length !=0) {
@@ -72,7 +72,7 @@ public class DataManager {
         return null;
     }
 
-    public Tag getTag(int id) throws IOException {
+    public Tag getTag(long id) throws IOException {
         Gson gson = new Gson();
         QueryData queryData = new QueryData();
         FilterItem fi = new FilterItem("id","=", String.valueOf(id));
@@ -95,7 +95,7 @@ public class DataManager {
         return null;
     }
 
-    public Project getProject(int id) throws IOException {
+    public Project getProject(long id) throws IOException {
         Gson gson = new Gson();
         QueryData queryData = new QueryData();
         FilterItem fi = new FilterItem("id","=", String.valueOf(id));
