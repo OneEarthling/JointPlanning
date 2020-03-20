@@ -1,5 +1,6 @@
 package com.example.jointplanning.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.model.Task;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class TaskFragment extends Fragment {
@@ -40,35 +42,57 @@ public class TaskFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         long taskId = getArguments().getLong(ARG_TASK_ID);
-        try {
-            //mTask = TaskJsonLab.get().getTask(taskId);
-            // check!!!
-            mTask = DataManager.getInstance().getTask(taskId);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        new TaskFragment.getTask().execute(taskId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
+
         mTextTask = view.findViewById(R.id.task_text);
-        mTextTask.setText(mTask.getC_description());
+        //mTextTask.setText(mTask.getC_description());
 
         mEstimate = view.findViewById(R.id.task_estimate);
-        mEstimate.setText(String.valueOf(mTask.getN_size()));
+        //mEstimate.setText(String.valueOf(mTask.getN_size()));
 
         mPriority = view.findViewById(R.id.task_priority);
-        mPriority.setText(String.valueOf(mTask.getN_priority()));
+       //mPriority.setText(String.valueOf(mTask.getN_priority()));
 
         mAuthor = view.findViewById(R.id.task_author);
-        mAuthor.setText(mTask.getC_author());
+        //mAuthor.setText(mTask.getC_author());
 
         mDateCreated = view.findViewById(R.id.task_created_date);
-        mDateCreated.setText(String.valueOf(mTask.getDx_created()));
+       // mDateCreated.setText(String.valueOf(mTask.getDx_created()));
 
         mDateEstimated = view.findViewById(R.id.task_estimated_date);
-        mDateEstimated.setText(String.valueOf(mTask.getD_done_date()));
+        //mDateEstimated.setText(String.valueOf(mTask.getD_done_date()));
         return view;
     }
+
+    private class getTask extends AsyncTask<Long, Void, Task> {
+
+        @Override
+        protected Task doInBackground(Long... params) {
+            try {
+                return DataManager.getInstance().getTask(params[0]);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Task task) {
+            mTask = task;
+            mTextTask.setText(mTask.getC_description());
+            mEstimate.setText(String.valueOf(mTask.getN_size()));
+            mPriority.setText(String.valueOf(mTask.getN_priority()));
+            mAuthor.setText(mTask.getC_author());
+            mDateCreated.setText(String.valueOf(mTask.getDx_created()));
+            mDateEstimated.setText(String.valueOf(mTask.getD_done_date()));
+        }
+    }
+
+
 }
