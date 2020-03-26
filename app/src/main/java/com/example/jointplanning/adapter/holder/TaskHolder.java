@@ -20,7 +20,8 @@ public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickL
     private TextView mEstimate;
     private TextView mPriority;
 
-    private TaskJson mTask;
+//    private TaskJson mTask;
+    private Task mTask;
 
     public TaskHolder(Context context, @NonNull View itemView) {
         super(itemView);
@@ -33,14 +34,14 @@ public class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickL
         itemView.setOnClickListener(this);
     }
 
-    public void bind(TaskJson task) {
+    public void bind(Task task) {
         mTask = task;
-//        mTextTask.setText(task.getText());
-//        mEstimate.setText(String.valueOf(task.getEstimate()));
-//        mPriority.setText(String.valueOf(task.getPriority()));
-        mTextTask.setText(task.getCDescription());
-        mEstimate.setText(String.valueOf(task.getNSize()));
-        mPriority.setText(String.valueOf(task.getNPriority()));
+        mTextTask.setText(task.getText());
+        mEstimate.setText(String.valueOf(task.getEstimate()));
+        mPriority.setText(String.valueOf(task.getPriority()));
+//        mTextTask.setText(task.getCDescription());
+//        mEstimate.setText(String.valueOf(task.getNSize()));
+//        mPriority.setText(String.valueOf(task.getNPriority()));
     }
 
     @Override

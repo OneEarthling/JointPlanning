@@ -23,13 +23,13 @@ import java.util.List;
 public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
     private Context mContext;
 
-//    private List<Task> mTasks;
-    private List<TaskJson> mTasks;
+    private List<Task> mTasks;
+//    private List<TaskJson> mTasks;
 
     public TaskAdapter(Context context) {
         mContext = context;
-//        TaskLab taskLab = TaskLab.get();
-//        mTasks = taskLab.getTasks();
+        TaskLab taskLab = TaskLab.get();
+        mTasks = taskLab.getTasks();
         //new getTasksDB().execute();
     }
 
@@ -43,8 +43,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskHolder>{
 
     @Override
     public void onBindViewHolder(TaskHolder holder, int position) {
-//        Task task = mTasks.get(position);
-        TaskJson task = mTasks.get(position);
+       Task task = mTasks.get(position);
+        //TaskJson task = mTasks.get(position);
         holder.bind(task);
     }
 

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jointplanning.App;
 import com.example.jointplanning.TaskJsonLab;
+import com.example.jointplanning.TaskLab;
 import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.MainActivity;
@@ -29,6 +30,7 @@ import com.example.jointplanning.activity.ReadyActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 import com.example.jointplanning.adapter.TaskAdapter;
 import com.example.jointplanning.authorization.Authorization;
+import com.example.jointplanning.model.Task;
 import com.example.jointplanning.model.TaskJson;
 
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class TaskListFragment extends Fragment {
 
     private RecyclerView mTasksRecyclerView;
     private TaskAdapter mAdapter;
-    private List<TaskJson> mTasks = new ArrayList<>();
+    private List<Task> mTasks = new ArrayList<>();
 
     public static TaskListFragment newInstance() {
         return new TaskListFragment();
@@ -141,23 +143,21 @@ public class TaskListFragment extends Fragment {
         }
     }
 
-    private class getTasksDB extends AsyncTask<Void, Void, List<TaskJson>> {
+    private class getTasksDB extends AsyncTask<Void, Void, List<Task>> {
 
         @Override
-        protected List<TaskJson> doInBackground(Void... params) {
+        protected List<Task> doInBackground(Void... params) {
 
-            TaskJsonLab taskLab = null;
-            try {
-                taskLab = TaskJsonLab.get();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            TaskLab taskLab = null;
+//            TaskJsonLab taskLab = null;
+            taskLab = TaskLab.get();
+
             mTasks = taskLab.getTasks();
             return mTasks;
         }
 
         @Override
-        protected void onPostExecute(List<TaskJson> items) {
+        protected void onPostExecute(List<Task> items) {
             Log.i("SIZE", "size: " + mTasks.size());
             if ( mTasks.size() == 0) {
                 mTasks.addAll(items);
