@@ -119,6 +119,7 @@ public class TaskListFragment extends Fragment {
                 adb.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // ???
                         ((App) getActivity().getApplication()).unAuthorized(true);
 
                         Intent intent = new Intent(getContext(), MainActivity.class);
