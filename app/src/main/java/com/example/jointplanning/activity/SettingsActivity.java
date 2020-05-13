@@ -20,4 +20,10 @@ public class SettingsActivity extends SingleFragmentActivity {
     protected Fragment createFragment() {
         return SettingsFragment.newInstance();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.overridePendingTransition(0, 0);
+    }
 }

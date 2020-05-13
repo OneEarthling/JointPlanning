@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -12,10 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.jointplanning.R;
 
+import java.util.Random;
+
 public class SettingsFragment extends Fragment {
     private EditText mNickname;
     private Spinner mTheme;
     private Spinner mShirtCard;
+    private Button mButton;
 
     String[] themes = {"Red", "Green", "Blue"};
     String[] shirts = {"Temporary", "Example", "of", "Shirts"};
@@ -35,9 +39,6 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        mNickname = view.findViewById(R.id.nickname_et);
-        // shared preference here
-
 
         mTheme = view.findViewById(R.id.spinner_theme);
         ArrayAdapter<String> adapterThemes = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, themes);
@@ -51,4 +52,5 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
+
 }

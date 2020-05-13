@@ -47,14 +47,14 @@ public class ReadyWaitFragment extends Fragment implements ISocketNotification{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ready_wait, container, false);
         tv = view.findViewById(R.id.plsWait);
-        /*tv.setOnClickListener(new View.OnClickListener() {
+        tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, ReadyTaskFragment.newInstance());
                 transaction.commit();
             }
-        });*/
+    });
 
         return view;
     }

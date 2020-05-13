@@ -5,7 +5,7 @@
     <string name="exit">Выйти</string>
     <string name="info">Инфо</string>
     <string name="about_text">Данная программа предназначена для
-    ведения совместного планирования</string>
+    ведения совместного планирования и оценивания задач по гибкой методологии Scrum</string>
     <string name="nickname">Никнейм: </string>
     <string name="enter_nickname">Введите ваш никнейм</string>
     <string name="theme">Тема:</string>
@@ -49,4 +49,5 @@
     <string name="task_was_created">Задача создана:</string>
     <string name="task_was_estimated">Задача оценена:</string>
     <string name="author">Автор:</string>
+    <string name="custom_settings">Пользовательские настройки</string>
 </resources>

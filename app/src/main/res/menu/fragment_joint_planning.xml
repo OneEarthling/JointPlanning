@@ -6,15 +6,18 @@
         android:icon="@drawable/ic_menu_ready"
         app:showAsAction="ifRoom"
         android:title="@string/ready" />
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_menu_settings_foreground"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/info"
         android:title="@string/info"
         android:icon="@drawable/ic_menu_info"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/settings"
-        android:title="@string/settings" />
+
     <item
         android:id="@+id/exit"
         android:title="@string/exit"/>

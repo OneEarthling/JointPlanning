@@ -50,12 +50,12 @@
         android:layout_width="350dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:listSelector="#00000000"
         android:horizontalSpacing="5dp"
+        android:listSelector="#00000000"
         android:verticalSpacing="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></GridView>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

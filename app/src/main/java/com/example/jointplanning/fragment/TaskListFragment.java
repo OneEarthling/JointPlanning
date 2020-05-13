@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskListFragment extends Fragment {
-
     private RecyclerView mTasksRecyclerView;
     private TaskAdapter mAdapter;
     private List<Task> mTasks = new ArrayList<>();

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/info"
+        android:title="@string/info"
+        android:icon="@drawable/ic_menu_info"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/offline_settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_menu_settings_foreground"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/sign_in"
+        android:title="@string/sign_in"
+        android:icon="@drawable/ic_menu_signin_foreground"
+        app:showAsAction="ifRoom" />
+
+</menu>
