@@ -8,8 +8,8 @@
     ведения совместного планирования и оценивания задач по гибкой методологии Scrum</string>
     <string name="nickname">Никнейм: </string>
     <string name="enter_nickname">Введите ваш никнейм</string>
-    <string name="theme">Тема:</string>
-    <string name="shirtcard">Рубашка карты:</string>
+    <string name="theme">Тема</string>
+    <string name="shirtcard">Рубашка карты</string>
     <string name="im_ready">Я готов!</string>
     <string name="show_similar">Показать похожие задачи</string>
     <string name="priority">Приоритет: </string>
@@ -50,4 +50,16 @@
     <string name="task_was_estimated">Задача оценена:</string>
     <string name="author">Автор:</string>
     <string name="custom_settings">Пользовательские настройки</string>
+
+    <string-array name="themes">
+        <item>Тёмная тема</item>
+        <item>Розовая тема</item>
+        <item>Синяя тема</item>
+        <item>Зелёная тема</item>
+    </string-array>
+
+    <string name="OK">OK</string>
+    <string name="def_theme">Тёмная тема</string>
+    <string name="theme_summary">Внешний вид приложения</string>
+    <string name="theme_dialog_title">Тема</string>
 </resources>

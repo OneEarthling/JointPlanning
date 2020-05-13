@@ -24,5 +24,10 @@
     <color name="secondaryDarkColor">#ba2d65</color>
     <color name="primaryTextColor">#ffebee</color>
     <color name="secondaryTextColor">#f3e5f5</color>
+
+
+    <color name="welcome_text_color">#FF0000</color>
+    <color name="sky_blue">#6698FF</color>
+    <color name="green_apple">#629632</color>
 </resources>
 

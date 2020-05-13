@@ -1,29 +1,45 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">#000</item>
-        <item name="colorPrimaryDark">#000</item>
-        <item name="colorAccent">#000</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppThemeDarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#000</item>
-        <item name="colorPrimaryDark">#000</item>
-        <item name="colorAccent">#000</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-    </style>
-
-    <style name="WindowAnimationTransition">
-        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
-    </style>
-
-    <style name="AppThemePink" parent="Theme.AppCompat">
+    <style name="ThemePink" parent="Theme.AppCompat">
         <item name="colorPrimary">#d81b60</item>
         <item name="colorPrimaryDark">#a00037</item>
         <item name="colorAccent">#ff5c8d</item>
+        <item name="android:navigationBarColor">#a00037</item>
+        <item name="android:textColor">#ffebee</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="ThemeBlue" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#303f9f</item>
+        <item name="colorPrimaryDark">#001970</item>
+        <item name="colorAccent">#666ad1</item>
+        <item name="android:navigationBarColor">#283593</item>
+        <item name="android:background">#aab6fe</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="ThemeGreen" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#66bb6a</item>
+        <item name="colorPrimaryDark">#338a3e</item>
+        <item name="colorAccent">#98ee99</item>
+        <item name="android:background">#a5d6a7</item>
+        <item name="android:navigationBarColor">#338a3e</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/sky_blue</item>
+        <item name="android:windowBackground">@color/red</item>
     </style>
 
 </resources>

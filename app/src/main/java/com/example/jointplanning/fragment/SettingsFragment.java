@@ -1,32 +1,58 @@
 package com.example.jointplanning.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 
-import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+
+import android.util.Log;
 
 import com.example.jointplanning.R;
 
-import java.util.Random;
-
-public class SettingsFragment extends Fragment {
-    private EditText mNickname;
-    private Spinner mTheme;
-    private Spinner mShirtCard;
-    private Button mButton;
-
-    String[] themes = {"Red", "Green", "Blue"};
-    String[] shirts = {"Temporary", "Example", "of", "Shirts"};
+public class SettingsFragment extends PreferenceFragmentCompat {
+    public static final int RESULT_CODE_THEME_UPDATED = 1;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        Log.d("one", "onCreatePreferences");
+        setPreferencesFromResource(R.xml.preferences, rootKey);
+        //findPreference("theme").setOnPreferenceChangeListener(new RefershActivityOnPreferenceChangeListener(RESULT_CODE_THEME_UPDATED));
+        findPreference("theme").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                Log.d("onee", "onPreferenceChange");
+
+                SharedPreferences pref = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity());
+                String themeName = pref.getString("theme", String.valueOf(getPreferenceScreen().getPreference(0)));
+                Log.d("onee", "preferences were changed" );
+                Log.d("onee", "" + newValue );
+                Log.d("oneeee", "" + themeName);
+                switch (newValue.toString()){
+                    case "Тёмная тема":
+                        Log.d("onee", "theme1");
+                        getActivity().setTheme(R.style.AppTheme);
+                        break;
+                    case "Розовая тема":
+                        Log.d("onee", "theme2");
+                        getActivity().setTheme(R.style.ThemePink);
+                        break;
+                    case "Синяя тема":
+                        Log.d("onee", "theme3");
+                        getActivity().setTheme(R.style.ThemeBlue);
+                        break;
+                    case "Зелёная тема":
+                        Log.d("onee", "theme4");
+                        getActivity().setTheme(R.style.ThemeGreen);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     public static SettingsFragment newInstance() {
@@ -36,21 +62,41 @@ public class SettingsFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+    private class RefershActivityOnPreferenceChangeListener implements androidx.preference.Preference.OnPreferenceChangeListener {
+        private final int resultCode;
+        public RefershActivityOnPreferenceChangeListener(int resultCode) {
+            this.resultCode = resultCode;
+        }
 
-        mTheme = view.findViewById(R.id.spinner_theme);
-        ArrayAdapter<String> adapterThemes = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, themes);
-        adapterThemes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mTheme.setAdapter(adapterThemes);
-
-        mShirtCard = view.findViewById(R.id.spinner_shirtcard);
-        ArrayAdapter<String> adapterShirtCards = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, shirts);
-        adapterShirtCards.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mShirtCard.setAdapter(adapterShirtCards);
-
-        return view;
+        @Override
+        public boolean onPreferenceChange(androidx.preference.Preference preference, Object newValue) {
+            getActivity().setResult(resultCode);
+            SharedPreferences pref = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity());
+            String themeName = pref.getString("theme", "Theme1");
+            Log.d("one", "" + themeName);
+            switch (themeName){
+                case "Тёмная тема":
+                    Log.d("onee", "theme1");
+                    getActivity().setTheme(R.style.AppTheme);
+                    break;
+                case "Розовая тема":
+                    Log.d("onee", "theme2");
+                    getActivity().setTheme(R.style.ThemePink);
+                    break;
+                case "Синяя тема":
+                    Log.d("onee", "theme3");
+                    getActivity().setTheme(R.style.ThemeBlue);
+                    break;
+                case "Зелёная тема":
+                    Log.d("onee", "theme4");
+                    getActivity().setTheme(R.style.ThemeGreen);
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }
     }
 
 }
