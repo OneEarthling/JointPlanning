@@ -18,27 +18,24 @@ public class InfoActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager
                 .getDefaultSharedPreferences(this);
         String themeName = pref.getString("theme", "Theme1");
-        Log.d("one", "" + themeName);
-        switch (themeName) {
+        int themeToSet = R.style.AppTheme;
+        switch (themeName){
             case "Тёмная тема":
-                Log.d("one", "theme1");
-                setTheme(R.style.AppTheme);
+                themeToSet = R.style.AppTheme;
                 break;
             case "Розовая тема":
-                Log.d("one", "theme2");
-                setTheme(R.style.ThemePink);
+                themeToSet = R.style.ThemePink;
                 break;
             case "Синяя тема":
-                Log.d("one", "theme3");
-                setTheme(R.style.ThemeBlue);
+                themeToSet = R.style.ThemeBlue;
                 break;
             case "Зелёная тема":
-                Log.d("one", "theme4");
-                setTheme(R.style.ThemeGreen);
+                themeToSet = R.style.ThemeGreen;
                 break;
             default:
                 break;
         }
+        setTheme(themeToSet);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
     }

@@ -32,7 +32,7 @@
         <item name="colorPrimary">#66bb6a</item>
         <item name="colorPrimaryDark">#338a3e</item>
         <item name="colorAccent">#98ee99</item>
-        <item name="android:background">#a5d6a7</item>
+        <item name="android:windowBackground">#a5d6a7</item>
         <item name="android:navigationBarColor">#338a3e</item>
         <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>

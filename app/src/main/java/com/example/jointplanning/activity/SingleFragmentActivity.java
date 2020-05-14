@@ -40,55 +40,29 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager
                 .getDefaultSharedPreferences(this);
         String themeName = pref.getString("theme", "Theme1");
-        Log.d("one", "" + themeName);
+        int themeToSet = R.style.AppTheme;
         switch (themeName){
             case "Тёмная тема":
-                Log.d("one", "theme1");
-                setTheme(R.style.AppTheme);
+                themeToSet = R.style.AppTheme;
                 break;
             case "Розовая тема":
-                Log.d("one", "theme2");
-                setTheme(R.style.ThemePink);
+                themeToSet = R.style.ThemePink;
                 break;
             case "Синяя тема":
-                Log.d("one", "theme3");
-                setTheme(R.style.ThemeBlue);
+                themeToSet = R.style.ThemeBlue;
                 break;
             case "Зелёная тема":
-                Log.d("one", "theme4");
-                setTheme(R.style.ThemeGreen);
+                themeToSet = R.style.ThemeGreen;
                 break;
             default:
                 break;
         }
+        setTheme(themeToSet);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("two", "onCreate");
-        SharedPreferences pref = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        String themeName = pref.getString("theme", "Theme1");
-        Log.d("on", "" + themeName);
-        switch (themeName){
-            case "Тёмная тема":
-                Log.d("on", "theme1");
-                setTheme(R.style.AppTheme);
-                break;
-            case "Розовая тема":
-                Log.d("on", "theme2");
-                setTheme(R.style.ThemePink);
-                break;
-            case "Синяя тема":
-                Log.d("on", "theme3");
-                setTheme(R.style.ThemeBlue);
-                break;
-            case "Зелёная тема":
-                Log.d("on", "theme4");
-                setTheme(R.style.ThemeGreen);
-                break;
-            default:
-                break;
-        }
+        refreshTheme();
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
 
