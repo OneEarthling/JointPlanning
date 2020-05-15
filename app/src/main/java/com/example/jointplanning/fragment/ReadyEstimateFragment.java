@@ -14,10 +14,11 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.jointplanning.PreferenceUtils;
 import com.example.jointplanning.R;
 
 public class ReadyEstimateFragment extends Fragment {
-    private final String[] CARDS = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "?", "coffee"};
+    private String[] CARDS = new String[0];
     private GridView mGridView;
     private ArrayAdapter<String> mAdapter;
     private TextView mUserEstimate;
@@ -31,6 +32,7 @@ public class ReadyEstimateFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        CARDS = PreferenceUtils.getSequence(getActivity());
         super.onCreate(savedInstanceState);
     }
 

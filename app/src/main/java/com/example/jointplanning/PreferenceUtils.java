@@ -10,7 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.preference.PreferenceManager;
 
-public class ColorsUtils {
+public class PreferenceUtils {
 
     public static void refreshTheme(Context context){
         SharedPreferences pref = PreferenceManager
@@ -62,5 +62,30 @@ public class ColorsUtils {
 
         DrawableCompat.setTint(wrappedDrawable, color);
         DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.ADD);
+    }
+
+    public static String[] getSequence(Context context){
+        SharedPreferences pref = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        String sequenceName = pref.getString("sequence", context.getResources().getStringArray(R.array.sequence)[0]);
+        String[] CARDS = new String[0];
+        switch (sequenceName){
+            case "Стандартная":
+                CARDS = new String[]{"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "?", "coffee"};
+                break;
+            case "Фибоначчи":
+                CARDS = new String[]{"0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "?", "coffee"};
+                break;
+            case "Натуральная":
+                CARDS = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "?", "coffee"};
+                break;
+            case "Часовая":
+                CARDS = new String[]{"0", "1", "2", "4", "6", "8", "16", "24", "32", "40", "?", "coffee"};
+                break;
+            default:
+                CARDS = new String[]{"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "?", "coffee"};
+                break;
+        }
+        return CARDS;
     }
 }

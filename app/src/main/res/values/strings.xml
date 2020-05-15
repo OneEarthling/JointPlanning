@@ -73,4 +73,22 @@
     <string name="def_shirt">Красная рубашка</string>
     <string name="shirts_dialog_title">Рубашка</string>
     <string name="shirts_summary">Цвет рубашки карт</string>
+
+    <string-array name="sequenceRead">
+        <item><font size="20">Стандартная</font><font size="10">\n(0, 1, 2, 3, 5, 8, 13, 20, …100)</font></item>
+        <item><font size="20">Фибоначчи</font><font size="10">\n(0, 1, 2, 3, 5, 8, 13, 21, …987)</font></item>
+        <item><font size="20">Натуральная</font><font size="10">\n(0, 1, 2, 3, 4, 5, 6, 7, …15)</font></item>
+        <item><font size="20">Часовая</font><font size="10">\n(0, 1, 2, 4, 6, 8, 16, 24, 32, 40)</font></item>
+    </string-array>
+
+    <string-array name="sequence">
+        <item>Стандартная</item>
+        <item>Фибоначчи</item>
+        <item>Натуральная</item>
+        <item>Часовая</item>
+    </string-array>
+
+    <string name="def_sequence">Стандартная</string>
+    <string name="sequence_dialog_title">Последовательность</string>
+    <string name="sequence_summary">Числовая последовательность, отображаемая на картах</string>
 </resources>

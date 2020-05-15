@@ -3,8 +3,6 @@ package com.example.jointplanning.fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
@@ -12,7 +10,7 @@ import androidx.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.jointplanning.ColorsUtils;
+import com.example.jointplanning.PreferenceUtils;
 import com.example.jointplanning.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -33,7 +31,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 Log.d(TAG, "onPreferenceChange");
-                ColorsUtils.refreshTheme(getActivity());
+                PreferenceUtils.refreshTheme(getActivity());
                 Toast.makeText(getActivity(), newValue + " была выбрана", Toast.LENGTH_SHORT).show();
                 return true;
             }
