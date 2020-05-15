@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/big_card"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:textColor="@android:color/white"
+        android:textSize="100sp"
+        android:textAlignment="center"
+        android:background="@drawable/rectangle_card"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

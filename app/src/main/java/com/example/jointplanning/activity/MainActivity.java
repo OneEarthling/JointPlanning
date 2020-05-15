@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.example.jointplanning.fragment.OfflineFragment;
 import com.example.jointplanning.fragment.TaskListFragment;
 
 public class MainActivity extends SingleFragmentActivity {
+
     public MainActivity() {
         super(true);
     }
@@ -29,5 +31,6 @@ public class MainActivity extends SingleFragmentActivity {
     protected Fragment createFragment() {
         return OfflineFragment.newInstance();
     }
+
 
 }

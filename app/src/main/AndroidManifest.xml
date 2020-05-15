@@ -38,6 +38,9 @@
         <activity android:name=".activity.RequestsActivity"
             android:parentActivityName=".activity.MainActivity"/>
 
+        <activity android:name=".activity.BigCardActivity"
+            android:parentActivityName=".activity.MainActivity"/>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.jointplanning.provider"

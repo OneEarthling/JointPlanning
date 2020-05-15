@@ -14,10 +14,13 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jointplanning.PreferenceUtils;
 import com.example.jointplanning.R;
+import com.example.jointplanning.activity.BigCardActivity;
 import com.example.jointplanning.activity.InfoActivity;
+import com.example.jointplanning.activity.MainActivity;
 import com.example.jointplanning.activity.RequestsActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 
@@ -58,6 +61,14 @@ public class OfflineFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getContext(), BigCardActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+
+               /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, BigCardFragment.newInstance(selectedItem));
+                transaction.commit();*/
             }
         });
         return view;
