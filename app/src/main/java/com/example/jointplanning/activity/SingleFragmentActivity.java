@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.jointplanning.ColorsUtils;
 import com.example.jointplanning.R;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
@@ -36,33 +37,10 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         return R.layout.activity_fragment;
     }
 
-    protected void refreshTheme(){
-        SharedPreferences pref = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        String themeName = pref.getString("theme", "Theme1");
-        int themeToSet = R.style.AppTheme;
-        switch (themeName){
-            case "Тёмная тема":
-                themeToSet = R.style.AppTheme;
-                break;
-            case "Розовая тема":
-                themeToSet = R.style.ThemePink;
-                break;
-            case "Синяя тема":
-                themeToSet = R.style.ThemeBlue;
-                break;
-            case "Зелёная тема":
-                themeToSet = R.style.ThemeGreen;
-                break;
-            default:
-                break;
-        }
-        setTheme(themeToSet);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        refreshTheme();
+        ColorsUtils.refreshTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
 

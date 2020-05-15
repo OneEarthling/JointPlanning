@@ -16,18 +16,8 @@
     <color name="button_pressed_border_color">#cd5c5c</color>
     <color name="over_due">#EB5757</color>
 
-    <color name="primaryColor">#d81b60</color>
-    <color name="primaryLightColor">#ff5c8d</color>
-    <color name="primaryDarkColor">#a00037</color>
-    <color name="secondaryColor">#f06292</color>
-    <color name="secondaryLightColor">#ff94c2</color>
-    <color name="secondaryDarkColor">#ba2d65</color>
-    <color name="primaryTextColor">#ffebee</color>
-    <color name="secondaryTextColor">#f3e5f5</color>
+    <color name="dark_green">#2E7D32</color>
 
 
-    <color name="welcome_text_color">#FF0000</color>
-    <color name="sky_blue">#6698FF</color>
-    <color name="green_apple">#629632</color>
 </resources>
 

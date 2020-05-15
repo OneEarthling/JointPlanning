@@ -12,6 +12,7 @@ import androidx.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.jointplanning.ColorsUtils;
 import com.example.jointplanning.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -32,27 +33,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 Log.d(TAG, "onPreferenceChange");
-                SharedPreferences pref = PreferenceManager
-                        .getDefaultSharedPreferences(getActivity());
-                String themeName = pref.getString("theme", "Theme1");
-                int themeToSet = R.style.AppTheme;
-                switch (themeName){
-                    case "Тёмная тема":
-                        themeToSet = R.style.AppTheme;
-                        break;
-                    case "Розовая тема":
-                        themeToSet = R.style.ThemePink;
-                        break;
-                    case "Синяя тема":
-                        themeToSet = R.style.ThemeBlue;
-                        break;
-                    case "Зелёная тема":
-                        themeToSet = R.style.ThemeGreen;
-                        break;
-                    default:
-                        break;
-                }
-                getActivity().setTheme(themeToSet);
+                ColorsUtils.refreshTheme(getActivity());
                 Toast.makeText(getActivity(), newValue + " была выбрана", Toast.LENGTH_SHORT).show();
                 return true;
             }

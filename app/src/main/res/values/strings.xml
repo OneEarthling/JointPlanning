@@ -62,4 +62,15 @@
     <string name="def_theme">Тёмная тема</string>
     <string name="theme_summary">Внешний вид приложения</string>
     <string name="theme_dialog_title">Тема</string>
+
+    <string-array name="shirts">
+        <item>Красная рубашка</item>
+        <item>Синяя рубашка</item>
+        <item>Зелёная рубашка</item>
+        <item>Чёрная рубашка</item>
+    </string-array>
+
+    <string name="def_shirt">Красная рубашка</string>
+    <string name="shirts_dialog_title">Рубашка</string>
+    <string name="shirts_summary">Цвет рубашки карт</string>
 </resources>
