@@ -38,4 +38,16 @@
         <item name="android:colorButtonNormal">#66bb6a</item>
     </style>
 
+    <style name="RedText" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">#a00037</item>
+    </style>
+
+    <style name="BlueText" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">#001970</item>
+    </style>
+
+    <style name="GreenText" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">#338a3e</item>
+    </style>
+
 </resources>

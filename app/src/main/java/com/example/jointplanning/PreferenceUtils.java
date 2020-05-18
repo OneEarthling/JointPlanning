@@ -92,4 +92,28 @@ public class PreferenceUtils {
         }
         return CARDS;
     }
+
+    public static int refreshResultTextColor(Context context){
+        SharedPreferences pref = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        String themeName = pref.getString("theme", "Тёмная тема");
+        int themeToSet = R.style.AppTheme;
+        switch (themeName){
+            case "Тёмная тема":
+                themeToSet = R.style.RedText;
+                break;
+            case "Розовая тема":
+                themeToSet = R.style.RedText;
+                break;
+            case "Синяя тема":
+                themeToSet = R.style.BlueText;
+                break;
+            case "Зелёная тема":
+                themeToSet = R.style.GreenText;
+                break;
+            default:
+                break;
+        }
+        return themeToSet;
+    }
 }
