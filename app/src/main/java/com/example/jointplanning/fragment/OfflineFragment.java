@@ -62,7 +62,10 @@ public class OfflineFragment extends Fragment {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
 
+                Bundle bundle = new Bundle();
+                bundle.putString("estimate", selectedItem);
                 Intent intent = new Intent(getContext(), BigCardActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 getActivity().overridePendingTransition(0, 0);
 

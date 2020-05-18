@@ -6,12 +6,15 @@
 
     <TextView
         android:id="@+id/big_card"
-        android:layout_width="350dp"
-        android:layout_height="550dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:textColor="@android:color/white"
         android:textSize="100sp"
+        android:textStyle="bold"
+        android:text="21"
         android:textAlignment="center"
-        android:background="@drawable/rectangle_card"
+        android:gravity="center"
+        android:background="@drawable/rectangle_bigcard"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 

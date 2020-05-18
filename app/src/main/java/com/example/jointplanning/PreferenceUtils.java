@@ -58,10 +58,14 @@ public class PreferenceUtils {
                 break;
         }
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(context, R.drawable.rectangle_card);
+        Drawable unwrappedDrawableBig = AppCompatResources.getDrawable(context, R.drawable.rectangle_bigcard);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+        Drawable wrappedDrawableBig = DrawableCompat.wrap(unwrappedDrawableBig);
 
         DrawableCompat.setTint(wrappedDrawable, color);
         DrawableCompat.setTintMode(wrappedDrawable, PorterDuff.Mode.ADD);
+        DrawableCompat.setTint(wrappedDrawableBig, color);
+        DrawableCompat.setTintMode(wrappedDrawableBig, PorterDuff.Mode.ADD);
     }
 
     public static String[] getSequence(Context context){

@@ -1,6 +1,8 @@
 package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,9 @@ public class BigCardFragment extends Fragment {
 
         if( getArguments() != null) {
             String text = getArguments().getString(ARG_VALUE);
+            if (text.equals("coffee")){
+                mBigCard.setTextSize(75);
+            }
             mBigCard.setText(text);
         }
 
