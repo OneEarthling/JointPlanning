@@ -15,6 +15,7 @@
         <item name="android:navigationBarColor">#a00037</item>
         <item name="android:textColor">#000000</item>
         <item name="android:windowBackground">@drawable/background_pink</item>
+        <item name="android:colorButtonNormal">#ff5c8d</item>
     </style>
 
     <style name="ThemeBlue" parent="Theme.AppCompat">
@@ -24,6 +25,7 @@
         <item name="android:navigationBarColor">#283593</item>
         <item name="android:windowBackground">@drawable/background_blue</item>
         <item name="android:textColor">#000000</item>
+        <item name="android:colorButtonNormal">#666ad1</item>
     </style>
 
     <style name="ThemeGreen" parent="Theme.AppCompat">
@@ -33,6 +35,7 @@
         <item name="android:windowBackground">@drawable/background_green</item>
         <item name="android:navigationBarColor">#338a3e</item>
         <item name="android:textColor">#000000</item>
+        <item name="android:colorButtonNormal">#66bb6a</item>
     </style>
 
 </resources>

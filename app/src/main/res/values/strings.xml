@@ -11,7 +11,8 @@
     <string name="theme">Тема</string>
     <string name="shirtcard">Рубашка карты</string>
     <string name="im_ready">Я готов!</string>
-    <string name="show_similar">Показать похожие задачи</string>
+    <string name="do_estimate">Оценить</string>
+    <string name="show_similar">Похожие задачи</string>
     <string name="priority">Приоритет: </string>
     <string name="time_left">Осталось времени: </string>
     <string name="result">Результат: </string>

@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.MainActivity;
+import com.example.jointplanning.activity.RequestsActivity;
 
 public class ReadyTaskFragment extends Fragment {
 
@@ -47,7 +48,7 @@ public class ReadyTaskFragment extends Fragment {
             public void onClick(View v) {
                 // открытие похожих задач
                 // изменить!
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), RequestsActivity.class);
                 startActivity(intent);
             }
         });

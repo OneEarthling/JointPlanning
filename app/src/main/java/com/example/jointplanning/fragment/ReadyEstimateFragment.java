@@ -1,6 +1,7 @@
 package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class ReadyEstimateFragment extends Fragment {
     private GridView mGridView;
     private ArrayAdapter<String> mAdapter;
     private TextView mUserEstimate;
+    private TextView mTimeLeft;
 
     public static Fragment newInstance() {
         Bundle args = new Bundle();
@@ -34,6 +36,7 @@ public class ReadyEstimateFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         CARDS = PreferenceUtils.getSequence(getActivity());
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -53,7 +56,7 @@ public class ReadyEstimateFragment extends Fragment {
 //                Toast.makeText(getContext(), "!!!" + position, Toast.LENGTH_SHORT).show();
 
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
                 mUserEstimate.setText(selectedItem);
             }
         });
@@ -66,6 +69,19 @@ public class ReadyEstimateFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+        mTimeLeft = view.findViewById(R.id.time_left);
+        new CountDownTimer(20000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeft.setText(""+millisUntilFinished/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                mTimeLeft.setText("время вышло!");
+            }
+        }.start();
         return view;
     }
 
