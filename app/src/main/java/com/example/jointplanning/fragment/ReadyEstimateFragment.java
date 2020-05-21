@@ -2,7 +2,6 @@ package com.example.jointplanning.fragment;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.jointplanning.PreferenceUtils;
+import com.example.jointplanning.PreferenceManager;
 import com.example.jointplanning.R;
 
 public class ReadyEstimateFragment extends Fragment {
@@ -34,7 +32,7 @@ public class ReadyEstimateFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        CARDS = PreferenceUtils.getSequence(getActivity());
+        CARDS = PreferenceManager.getSequence(getActivity());
         super.onCreate(savedInstanceState);
 
     }

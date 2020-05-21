@@ -10,10 +10,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.preference.PreferenceManager;
 
-public class PreferenceUtils {
+public class PreferenceManager {
 
     public static void refreshTheme(Context context){
-        SharedPreferences pref = PreferenceManager
+        SharedPreferences pref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(context);
         String themeName = pref.getString("theme", "Тёмная тема");
         int themeToSet = R.style.ThemeDark;
@@ -40,7 +40,7 @@ public class PreferenceUtils {
     }
 
     public static void refreshShirts(Context context){
-        SharedPreferences pref = PreferenceManager
+        SharedPreferences pref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(context);
         String shirtName = pref.getString("shirts", context.getResources().getStringArray(R.array.shirts)[0]);
         int color = Color.RED;
@@ -72,7 +72,7 @@ public class PreferenceUtils {
     }
 
     public static String[] getSequence(Context context){
-        SharedPreferences pref = PreferenceManager
+        SharedPreferences pref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(context);
         String sequenceName = pref.getString("sequence", context.getResources().getStringArray(R.array.sequence)[0]);
         String[] CARDS = new String[0];
@@ -97,7 +97,7 @@ public class PreferenceUtils {
     }
 
     public static int refreshResultTextColor(Context context){
-        SharedPreferences pref = PreferenceManager
+        SharedPreferences pref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(context);
         String themeName = pref.getString("theme", "Тёмная тема");
         int themeToSet = R.style.AppTheme;

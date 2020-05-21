@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.jointplanning.PreferenceUtils;
+import com.example.jointplanning.PreferenceManager;
 import com.example.jointplanning.R;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
@@ -74,7 +74,7 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        PreferenceUtils.refreshTheme(this);
+        PreferenceManager.refreshTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
 

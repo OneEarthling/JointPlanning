@@ -14,13 +14,11 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.jointplanning.PreferenceUtils;
+import com.example.jointplanning.PreferenceManager;
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.BigCardActivity;
 import com.example.jointplanning.activity.InfoActivity;
-import com.example.jointplanning.activity.MainActivity;
 import com.example.jointplanning.activity.RequestsActivity;
 import com.example.jointplanning.activity.SettingsActivity;
 
@@ -42,8 +40,8 @@ public class OfflineFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        PreferenceUtils.refreshShirts(getActivity());
-        CARDS = PreferenceUtils.getSequence(getActivity());
+        PreferenceManager.refreshShirts(getActivity());
+        CARDS = PreferenceManager.getSequence(getActivity());
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }

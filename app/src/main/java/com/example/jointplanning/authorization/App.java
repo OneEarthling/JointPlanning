@@ -1,9 +1,11 @@
-package com.example.jointplanning;
+package com.example.jointplanning.authorization;
 
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 
+import com.example.jointplanning.Constants;
+import com.example.jointplanning.DataManager;
 import com.example.jointplanning.authorization.Authorization;
 
 public class App extends android.app.Application {

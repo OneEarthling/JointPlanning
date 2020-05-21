@@ -19,9 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.jointplanning.App;
+import com.example.jointplanning.authorization.App;
 import com.example.jointplanning.DataManager;
-import com.example.jointplanning.TaskJsonLab;
 import com.example.jointplanning.activity.InfoActivity;
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.MainActivity;

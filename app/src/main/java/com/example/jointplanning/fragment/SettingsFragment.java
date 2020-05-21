@@ -5,12 +5,11 @@ import android.os.Bundle;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.jointplanning.PreferenceUtils;
+import com.example.jointplanning.PreferenceManager;
 import com.example.jointplanning.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -31,7 +30,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 Log.d(TAG, "onPreferenceChange");
-                PreferenceUtils.refreshTheme(getActivity());
+                PreferenceManager.refreshTheme(getActivity());
                 Toast.makeText(getActivity(), newValue + " была выбрана", Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -54,7 +53,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public boolean onPreferenceChange(androidx.preference.Preference preference, Object newValue) {
             getActivity().setResult(resultCode);
-            SharedPreferences pref = PreferenceManager
+            SharedPreferences pref = androidx.preference.PreferenceManager
                     .getDefaultSharedPreferences(getActivity());
             String themeName = pref.getString("theme", "Theme1");
             Log.d("one", "" + themeName);
