@@ -54,6 +54,7 @@
 
     <string-array name="themes">
         <item>Тёмная тема</item>
+        <item>Светлая тема</item>
         <item>Розовая тема</item>
         <item>Синяя тема</item>
         <item>Зелёная тема</item>

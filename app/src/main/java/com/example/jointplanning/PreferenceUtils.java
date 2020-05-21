@@ -16,9 +16,12 @@ public class PreferenceUtils {
         SharedPreferences pref = PreferenceManager
                 .getDefaultSharedPreferences(context);
         String themeName = pref.getString("theme", "Тёмная тема");
-        int themeToSet = R.style.AppTheme;
+        int themeToSet = R.style.ThemeDark;
         switch (themeName){
             case "Тёмная тема":
+                themeToSet = R.style.ThemeDark;
+                break;
+            case "Светлая тема":
                 themeToSet = R.style.AppTheme;
                 break;
             case "Розовая тема":
