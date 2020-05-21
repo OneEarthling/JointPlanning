@@ -28,14 +28,11 @@ public class OfflineFragment extends Fragment {
     private ArrayAdapter<String> mAdapter;
     private final String TAG = "OfflineFragment";
 
-    public OfflineFragment() {
-    }
-
     public static Fragment newInstance() {
-        Bundle args = new Bundle();
-        OfflineFragment fragment = new OfflineFragment();
-        fragment.setArguments(args);
-        return fragment;
+//        Bundle args = new Bundle();
+//        OfflineFragment fragment = new OfflineFragment();
+//        fragment.setArguments(args);
+        return new OfflineFragment();
     }
 
     @Override
@@ -58,18 +55,13 @@ public class OfflineFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putString("estimate", selectedItem);
                 Intent intent = new Intent(getContext(), BigCardActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 getActivity().overridePendingTransition(0, 0);
-
-               /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, BigCardFragment.newInstance(selectedItem));
-                transaction.commit();*/
             }
         });
         return view;
