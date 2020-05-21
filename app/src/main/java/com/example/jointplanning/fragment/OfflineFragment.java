@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.jointplanning.PreferenceManager;
+import com.example.jointplanning.PreferenceUtilManager;
 import com.example.jointplanning.R;
 import com.example.jointplanning.activity.BigCardActivity;
 import com.example.jointplanning.activity.InfoActivity;
@@ -40,8 +40,8 @@ public class OfflineFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        PreferenceManager.refreshShirts(getActivity());
-        CARDS = PreferenceManager.getSequence(getActivity());
+        PreferenceUtilManager.refreshShirts(getActivity());
+        CARDS = PreferenceUtilManager.getSequence(getActivity());
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }

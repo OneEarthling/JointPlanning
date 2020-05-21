@@ -10,7 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.preference.PreferenceManager;
 
-public class PreferenceManager {
+public class PreferenceUtilManager {
 
     public static void refreshTheme(Context context){
         SharedPreferences pref = androidx.preference.PreferenceManager

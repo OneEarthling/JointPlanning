@@ -9,7 +9,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.jointplanning.PreferenceManager;
+import com.example.jointplanning.PreferenceUtilManager;
 import com.example.jointplanning.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -30,7 +30,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 Log.d(TAG, "onPreferenceChange");
-                PreferenceManager.refreshTheme(getActivity());
+                PreferenceUtilManager.refreshTheme(getActivity());
                 Toast.makeText(getActivity(), newValue + " была выбрана", Toast.LENGTH_SHORT).show();
                 return true;
             }

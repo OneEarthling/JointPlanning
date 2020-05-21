@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.jointplanning.PreferenceManager;
+import com.example.jointplanning.PreferenceUtilManager;
 import com.example.jointplanning.R;
 
 public class ReadyEstimateFragment extends Fragment {
@@ -32,7 +32,7 @@ public class ReadyEstimateFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        CARDS = PreferenceManager.getSequence(getActivity());
+        CARDS = PreferenceUtilManager.getSequence(getActivity());
         super.onCreate(savedInstanceState);
 
     }

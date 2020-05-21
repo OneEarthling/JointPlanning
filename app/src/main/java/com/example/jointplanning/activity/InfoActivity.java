@@ -4,14 +4,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.jointplanning.PreferenceManager;
+import com.example.jointplanning.PreferenceUtilManager;
 import com.example.jointplanning.R;
 
 public class InfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        PreferenceManager.refreshTheme(this);
+        PreferenceUtilManager.refreshTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
     }
