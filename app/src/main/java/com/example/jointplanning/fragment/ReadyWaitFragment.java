@@ -37,10 +37,11 @@ public class ReadyWaitFragment extends Fragment implements ISocketNotification{
         setHasOptionsMenu(true);
         // последний параметр это логин
         //socketManager = SocketManager.createInstance(baseUrl, "dGVzdDp0ZXN0", Authorization.getInstance().getLastAuthUser().getCredentials().login);
-        socketManager = SocketManager.createInstance(Constants.BASE_URL, Authorization.getInstance().getUser().getCredentials().getToken(), Authorization.getInstance().getUser().getCredentials().login);
+        //socketManager = SocketManager.createInstance(Constants.BASE_URL, Authorization.getInstance().getUser().getCredentials().getToken(), Authorization.getInstance().getUser().getCredentials().login);
+        socketManager = SocketManager.createInstance(Constants.BASE_URL, "dGVzdDp0ZXN0", "test");
         socketManager.open(this);
-        Log.d("one", Authorization.getInstance().getUser().getCredentials().getToken());
-        Log.d("one", Authorization.getInstance().getUser().getCredentials().login);
+        Log.d("ReadyWaitFragment", Authorization.getInstance().getUser().getCredentials().getToken());
+        Log.d("ReadyWaitFragment", Authorization.getInstance().getUser().getCredentials().login);
     }
 
     @Override
@@ -69,7 +70,7 @@ public class ReadyWaitFragment extends Fragment implements ISocketNotification{
     @Override
     public void onNotificationMessage(String type, final String buffer) {
         // added getActivity()
-        Log.d("one", "message from server received");
+        Log.d("ReadyWaitFragment", "message from server received");
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

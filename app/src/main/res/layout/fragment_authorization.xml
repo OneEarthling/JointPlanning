@@ -60,6 +60,7 @@
         android:layout_gravity="end"
         android:clickable="true"
         android:focusable="true"
+        android:visibility="invisible"
         tools:text="Версия: 4.2.0.520" />
 
 </RelativeLayout>

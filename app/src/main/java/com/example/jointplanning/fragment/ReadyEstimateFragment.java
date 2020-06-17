@@ -1,5 +1,6 @@
 package com.example.jointplanning.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.jointplanning.PreferenceUtilManager;
 import com.example.jointplanning.R;
+import com.example.jointplanning.activity.BigCardActivity;
 
 public class ReadyEstimateFragment extends Fragment {
     private String[] CARDS = new String[0];
@@ -56,6 +58,15 @@ public class ReadyEstimateFragment extends Fragment {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 //Toast.makeText(getContext(), "GridView item clicked : " +selectedItem + "\nAt index position : " + position, Toast.LENGTH_SHORT).show();
                 mUserEstimate.setText(selectedItem);
+
+                Fragment f = new ReadyResultFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("estimate", selectedItem);
+                f.setArguments(bundle);
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, f);
+                transaction.commit();
             }
         });
 
